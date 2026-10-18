@@ -22,11 +22,18 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Prepare Environment and Gradle Wrapper
+        run: |
+          # Copy .env.example to .env for the secrets gradle plugin
+          if [ ! -f ".env" ] && [ -f ".env.example" ]; then
+            cp .env.example .env
+          fi
 
-      - name: Grant Execute Permission for Gradlew
-        run: chmod +x gradlew || true
+          # Ensure gradlew exists (AI Studio exports often omit it)
+          if [ ! -f "gradlew" ]; then
+            gradle wrapper
+          fi
+          chmod +x gradlew
 
       - name: Build Debug APK
         run: ./gradlew :app:assembleDebug --stacktrace
