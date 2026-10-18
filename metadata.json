@@ -1,0 +1,6 @@
+{
+  "name": "MCQ Video Studio Pro",
+  "description": "High-performance offline 16:9 MCQ quiz video generator with MediaCodec hardware acceleration, FFmpeg stream copy, custom canvas themes, and gallery export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
