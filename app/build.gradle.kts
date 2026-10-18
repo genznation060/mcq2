@@ -50,9 +50,8 @@ android {
       signingConfig = signingConfigs.getByName("release")
     }
     debug {
-      // Do not remove or modify this signingConfig assignment. It is necessary for Android apps in
-      // AI Studio.
-      signingConfig = signingConfigs.getByName("debugConfig")
+      // Custom debugConfig removed to allow Gradle to auto-generate
+      // the standard debug keystore on CI runners.
     }
   }
   compileOptions {
